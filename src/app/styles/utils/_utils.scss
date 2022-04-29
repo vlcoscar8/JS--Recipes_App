@@ -1,0 +1,26 @@
+.no-active {
+    display: none !important;
+}
+
+.btn {
+    height: 3rem;
+    width: 90vw;
+    border-radius: 0.4rem;
+    border: 1px solid rgb(105, 105, 105);
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    &:hover {
+        transition: 0.5s ease;
+    }
+}
+
+.upper_nav {
+    transform: rotate(45deg) translateY(1rem);
+    transition: all 0.5s;
+}
+
+.down_nav {
+    transform: rotate(-45deg) translateY(-1rem);
+    transition: all 0.5s;
+}
