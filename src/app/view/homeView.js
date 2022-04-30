@@ -1,13 +1,8 @@
-import { foodFamily } from "../model/homeModel.js";
-
-const foodSection$$ = document.getElementById("food-list");
-
-const printHome = async () => {
-    const foodList = await foodFamily();
-
+const printHome = (listFood) => {
+    const foodSection$$ = document.getElementById("food-list");
     let content = "";
 
-    foodList.forEach((food) => {
+    listFood.forEach((food) => {
         content += `
         <div class="food__container">
           <img src="${food.img}" alt="${food.name}" class="food__image"/>
@@ -18,7 +13,11 @@ const printHome = async () => {
       `;
     });
 
-    foodSection$$.innerHTML = content;
+    if (foodSection$$.innerHTML === "") {
+        foodSection$$.innerHTML = content;
+    } else {
+        foodSection$$.insertAdjacentHTML("beforeend", content);
+    }
 };
 
 export { printHome };
