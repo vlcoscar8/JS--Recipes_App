@@ -1,0 +1,32 @@
+.food__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1rem;
+    margin: 2rem 1rem;
+
+    .food__container {
+        display: flex;
+        flex-direction: column;
+        max-height: 25rem;
+        border-radius: 0.5rem;
+        border: 1px solid gray;
+        cursor: pointer;
+
+        .food__image {
+            width: 100%;
+            height: 80%;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+        }
+
+        .title__container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 20%;
+            background-color: white;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+    }
+}

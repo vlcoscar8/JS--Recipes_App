@@ -1,5 +1,9 @@
-@import "./settings";
-@import "./variables/colorVariables";
-@import "./mixins/mixins";
+// Utils
+@import "./utils/settings";
+@import "./utils/colorVariables";
+@import "./utils/mixins";
 @import "./utils/utils";
-@import "./header/header";
+
+// View
+@import "./block/header";
+@import "./block/home";
