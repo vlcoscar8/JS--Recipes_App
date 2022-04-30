@@ -24,9 +24,27 @@
             align-items: center;
             justify-content: center;
             height: 20%;
+            position: relative;
             background-color: white;
             border-bottom-left-radius: 0.5rem;
             border-bottom-right-radius: 0.5rem;
+
+            .recipes_counter {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                right: 1rem;
+
+                .recipes {
+                    font-size: 1.7rem;
+                    color: $softsecondarycolor;
+                }
+
+                h4 {
+                    color: $secondarycolor;
+                }
+            }
         }
     }
 }
