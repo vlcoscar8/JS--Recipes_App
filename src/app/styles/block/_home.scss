@@ -1,22 +1,19 @@
 .food__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    gap: 1rem;
-    margin: 2rem 1rem;
+    gap: 2rem;
+    margin: 2rem 0rem;
 
     .food__container {
         display: flex;
         flex-direction: column;
         max-height: 25rem;
-        border-radius: 0.5rem;
-        border: 1px solid gray;
         cursor: pointer;
+        background-color: white;
 
         .food__image {
             width: 100%;
             height: 80%;
-            border-top-left-radius: 0.5rem;
-            border-top-right-radius: 0.5rem;
         }
 
         .title__container {
@@ -26,8 +23,6 @@
             height: 20%;
             position: relative;
             background-color: white;
-            border-bottom-left-radius: 0.5rem;
-            border-bottom-right-radius: 0.5rem;
 
             .recipes_counter {
                 position: absolute;
