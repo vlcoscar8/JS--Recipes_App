@@ -34,7 +34,6 @@ const printRecipe = async (recipe, owner) => {
             </div>
           </div>
           <button class="recipe__btn btn" id="recipe-detail-btn" data-recipeId="${recipe._id}">See details</button>
-          <button class="delete-recipe__btn btn" id="recipe-delete-btn" data-recipeId="${recipe._id}">Delete</button>
         </div>
       </div>
     `;

@@ -14,4 +14,20 @@ const recipeDetail = async (recipeId) => {
     return data;
 };
 
+const recipeIngredients = async (recipeId) => {
+    const response = await fetch(
+        `${URL}/recipes/${recipeId}?value=ingredients`
+    );
+    const data = await response.json();
+
+    return data;
+};
+
+const recipeSteps = async (recipeId) => {
+    const response = await fetch(`${URL}/recipes/${recipeId}?value=steps`);
+    const data = await response.json();
+
+    return data;
+};
+
 export { recipesListByName, recipeDetail };

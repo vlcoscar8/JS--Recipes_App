@@ -1,0 +1,90 @@
+.recipe__detail {
+    .recipe__title {
+        position: relative;
+
+        img {
+            width: 100vw;
+            height: 18rem;
+            object-fit: cover;
+            filter: grayscale(0.3);
+        }
+
+        .recipe__info {
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            align-items: end;
+            width: 100%;
+
+            .recipe__title {
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                width: 100vw;
+                padding: 0 1rem;
+                height: 7rem;
+                line-height: 0.5rem;
+                color: white;
+                background-color: rgba(255, 255, 255, 0.2);
+
+                position: relative;
+
+                h2 {
+                    position: absolute;
+                    top: 0.5rem;
+                }
+
+                h3 {
+                    position: absolute;
+                    top: 3.4rem;
+                }
+
+                .recipe__tags {
+                    display: flex;
+                    color: white;
+                    align-items: center;
+                    justify-content: space-between;
+                    align-self: end;
+                    gap: 2rem;
+                    margin: 0 1rem;
+
+                    .recipe__tag {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+
+                        .tag {
+                            font-size: 1.4rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .recipe__content {
+        padding: 0 2rem;
+        .recipe__category {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 0.7rem;
+            color: rgb(103, 103, 103);
+
+            h4 {
+                text-transform: capitalize;
+            }
+        }
+
+        .recipe__options {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .arrow {
+                font-size: 1.5rem;
+                color: rgb(103, 103, 103);
+            }
+        }
+    }
+}

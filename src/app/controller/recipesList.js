@@ -2,6 +2,7 @@ import { recipesListByName } from "../model/recipesModel.js";
 import { printRecipe } from "../view/recipesView.js";
 import { ownerDetail } from "../model/ownerDetail.js";
 import { recipeDetail } from "../model/recipesModel.js";
+import { printRecipeDetail } from "../view/recipeDetailView.js";
 
 const getRecipesList = async (e) => {
     const parentNode = e.target.parentNode;
@@ -23,10 +24,16 @@ const getRecipesList = async (e) => {
 
 const getDetailRecipe = (recipeBtns$$) => {
     recipeBtns$$.forEach((btn) => {
-        btn.onclick = async () => {
+        btn.onclick = async (e) => {
             const recipeId = btn.getAttribute("data-recipeId");
             const recipe = await recipeDetail(recipeId);
-            console.log(recipe);
+            const owner = await ownerDetail(recipe.owner[0]);
+
+            const recipeContainerList =
+                e.target.parentNode.parentNode.parentNode;
+            recipeContainerList.classList.toggle("no-active");
+
+            printRecipeDetail(recipe, owner);
         };
     });
 };
