@@ -1,4 +1,6 @@
-const printRecipe = (recipe, owner) => {
+import { getDetailRecipe } from "../controller/recipesList.js";
+
+const printRecipe = async (recipe, owner) => {
     const recipesSection$$ = document.getElementById("recipes-list");
 
     let content;
@@ -8,7 +10,7 @@ const printRecipe = (recipe, owner) => {
     } else {
         content = `
       <div class="recipe__container" id="recipe-container">
-        <div class="recipe__container__title">
+        <div class="recipe__container--title">
           <img src="${owner.img}"alt="${owner.username}" class="user__image"/>
           <div class="recipe__title">
             <h2>${recipe.title}</h2>
@@ -31,13 +33,17 @@ const printRecipe = (recipe, owner) => {
               <h4>${recipe.time}'</h4>
             </div>
           </div>
-          <button class="recipe__btn btn">See details</button>
+          <button class="recipe__btn btn" id="recipe-detail-btn" data-recipeId="${recipe._id}">See details</button>
+          <button class="delete-recipe__btn btn" id="recipe-delete-btn" data-recipeId="${recipe._id}">Delete</button>
         </div>
       </div>
     `;
     }
 
     recipesSection$$.insertAdjacentHTML("beforeend", content);
+
+    const recipeBtns$$ = document.querySelectorAll("#recipe-detail-btn");
+    getDetailRecipe(recipeBtns$$);
 };
 
 export { printRecipe };
