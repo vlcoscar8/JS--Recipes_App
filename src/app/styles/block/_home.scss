@@ -16,6 +16,10 @@
             height: 80%;
         }
 
+        h3 {
+            font-size: 2rem;
+        }
+
         .title__container {
             display: flex;
             align-items: center;
@@ -32,12 +36,13 @@
                 right: 1rem;
 
                 .recipes {
-                    font-size: 1.7rem;
+                    font-size: 1.8rem;
                     color: $softsecondarycolor;
                 }
 
                 h4 {
                     color: $secondarycolor;
+                    font-size: 1.5rem;
                 }
             }
         }

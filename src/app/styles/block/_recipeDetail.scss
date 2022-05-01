@@ -1,90 +1,70 @@
 .recipe__detail {
+    padding: 2rem 1rem;
+    height: 100vh;
+    background-color: white;
+
     .recipe__title {
-        position: relative;
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
 
         img {
-            width: 100vw;
-            height: 18rem;
+            width: 50%;
             object-fit: cover;
-            filter: grayscale(0.3);
+            border-radius: 1rem;
         }
 
-        .recipe__info {
-            display: flex;
-            position: absolute;
-            bottom: 0;
-            align-items: end;
-            width: 100%;
-
-            .recipe__title {
-                display: flex;
-                flex-direction: column;
-                justify-content: end;
-                width: 100vw;
-                padding: 0 1rem;
-                height: 7rem;
-                line-height: 0.5rem;
-                color: white;
-                background-color: rgba(255, 255, 255, 0.2);
-
-                position: relative;
-
-                h2 {
-                    position: absolute;
-                    top: 0.5rem;
-                }
-
-                h3 {
-                    position: absolute;
-                    top: 3.4rem;
-                }
-
-                .recipe__tags {
-                    display: flex;
-                    color: white;
-                    align-items: center;
-                    justify-content: space-between;
-                    align-self: end;
-                    gap: 2rem;
-                    margin: 0 1rem;
-
-                    .recipe__tag {
-                        display: flex;
-                        align-items: center;
-                        gap: 0.5rem;
-
-                        .tag {
-                            font-size: 1.4rem;
-                        }
-                    }
-                }
-            }
+        h3 {
+            color: rgb(113, 113, 113);
         }
     }
 
-    .recipe__content {
-        padding: 0 2rem;
-        .recipe__category {
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            gap: 0.7rem;
-            color: rgb(103, 103, 103);
+    .recipe__options {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        height: 4rem;
+        text-align: center;
 
-            h4 {
-                text-transform: capitalize;
-            }
+        .recipe__option {
+            width: 10rem;
         }
+    }
 
-        .recipe__options {
+    .recipe__tags {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 2rem 0;
+        gap: 2rem;
+        border-top: 1px solid rgb(220, 220, 220);
+
+        .recipe__tag {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            justify-content: center;
+            gap: 2rem;
+            height: 7rem;
+            width: 10rem;
+            line-height: 0.8rem;
+            text-align: center;
+            position: relative;
 
-            .arrow {
-                font-size: 1.5rem;
-                color: rgb(103, 103, 103);
+            .tag {
+                font-size: 2rem;
+                color: rgb(167, 167, 167);
+            }
+
+            h5 {
+                position: absolute;
+                top: -2rem;
+                font-size: 1.2rem;
             }
         }
     }
+}
+
+.choosen {
+    border-bottom: 3px solid $softterciarycolor;
+    color: $terciarycolor;
 }
