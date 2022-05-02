@@ -1,5 +1,6 @@
 const printHome = (listFood) => {
     const foodSection$$ = document.getElementById("food-list");
+    foodSection$$.classList.remove("no-active");
     let content = "";
 
     listFood.forEach((food) => {

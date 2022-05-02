@@ -2,6 +2,7 @@ import { getRecipeContent } from "../controller/recipeDetail.js";
 
 const printRecipeDetail = async (recipe, owner) => {
     const recipeDetail$$ = document.getElementById("recipe-detail");
+    recipeDetail$$.classList.remove("no-active");
 
     let content = `
           <div class="recipe__title">

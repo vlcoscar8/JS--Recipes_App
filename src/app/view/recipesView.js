@@ -2,7 +2,7 @@ import { getDetailRecipe } from "../controller/recipesList.js";
 
 const printRecipe = async (recipe, owner) => {
     const recipesSection$$ = document.getElementById("recipes-list");
-
+    recipesSection$$.classList.remove("no-active");
     let content;
 
     if (recipe === "") {

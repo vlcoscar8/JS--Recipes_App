@@ -1,4 +1,4 @@
-import { getListOnScroll, loadPage } from "./homeList.js";
+import { getListOnScroll } from "./homeList.js";
 import { getRecipesList } from "./recipesList.js";
 
 const listeners = () => {
@@ -6,7 +6,6 @@ const listeners = () => {
     window.addEventListener("click", (e) => {
         getRecipesList(e);
     });
-    loadPage();
 };
 
 export { listeners };

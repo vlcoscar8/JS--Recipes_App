@@ -21,6 +21,11 @@ const signupContainer$$ = document.getElementById("user-signup");
 const formLogin$$ = document.getElementById("form-login");
 const formSignup$$ = document.getElementById("form-signup");
 
+const homeBtn$$ = document.getElementById("home-btn");
+const foodList$$ = document.getElementById("food-list");
+const recipesList$$ = document.getElementById("recipes-list");
+const recipesDetail$$ = document.getElementById("recipe-detail");
+
 const headerController = async () => {
     userNav$$.classList.add("no-active");
     loginContainer$$.classList.add("no-active");
@@ -61,6 +66,14 @@ const headerController = async () => {
         downNav$$.classList.toggle("down_nav");
     });
 
+    homeBtn$$.addEventListener("click", () => {
+        foodList$$.classList.toggle("no-active");
+        recipesList$$.classList.toggle("no-active");
+        recipesList$$.innerHTML = "";
+        recipesDetail$$.classList.toggle("no-active");
+        recipesDetail$$.innerHTML = "";
+    });
+
     formSignup$$.addEventListener("submit", async (e) => {
         e.preventDefault();
 
@@ -70,7 +83,7 @@ const headerController = async () => {
             /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
         if (regex.test(formData.email)) {
-            const data = await registerUser(formData);
+            await registerUser(formData);
         } else {
             alert("The email or the password are not correct");
         }
