@@ -53,4 +53,33 @@ const printRecipeDetail = async (recipe, owner) => {
     await getRecipeContent(recipe._id, recipeOptions$$, recipeContent$$);
 };
 
-export { printRecipeDetail };
+const printContent = (content, recipeContent$$) => {
+    if (typeof content === "string") {
+        const HTML = `
+          <div class="recipe__content--description">
+            <p>${content}</p>
+          </div>
+        `;
+        recipeContent$$.innerHTML = HTML;
+    }
+
+    if (typeof content === "object") {
+        let HTML;
+        content.forEach((el) => {
+            HTML += `
+      <div class="recipe__content--extra">
+          <h2>Step ${content.indexOf(el) + 1}</h2>
+          <h3>${el.name}</h3>
+          <div class="content__info">
+            <h4>${el.number}</h4>
+            <h5>${el.unit}</h5>
+          </div>
+      </div>
+    `;
+        });
+
+        recipeContent$$.innerHTML = HTML;
+    }
+};
+
+export { printRecipeDetail, printContent };
