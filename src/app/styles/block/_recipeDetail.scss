@@ -79,7 +79,7 @@
             padding: 1rem;
             margin: 1rem 0;
             border-radius: 1.5rem;
-            background-color: $softmiddleterciarycolorTransparent;
+            background-color: $primarycolorTransparent;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -88,6 +88,7 @@
             h2 {
                 text-transform: capitalize;
                 align-self: flex-start;
+                font-size: 1.7rem;
             }
 
             &--content {
