@@ -24,10 +24,37 @@
             </div>
         </header>
         <section class="user__nav" id="user-nav">
-            <button class="login__btn btn">Log in</button>
-            <button class="register__btn btn">Sign up</button>
+            <button class="login__btn btn" id="login-btn">Log in</button>
+            <button class="register__btn btn" id="signup-btn">Sign up</button>
         </section>
-        <section id="food-list" class="food__list"></section>
+        <section class="user__login" id="user-login">
+            <form>
+                <label for="login">Email</label>
+                <input type="text" name="email" id="user-email" />
+                <label for="login">Password</label>
+                <input type="text" name="email" id="user-psw" />
+                <button type="submit" class="login__btn btn">Log in</button>
+            </form>
+        </section>
+        <section class="user__signup" id="user-signup">
+            <form>
+                <label for="login">Username</label>
+                <input type="text" name="username" id="user-username" />
+                <label for="login">Email</label>
+                <input type="text" name="email" id="user-email" />
+                <label for="login">Password</label>
+                <input type="text" name="password" id="user-psw" />
+                <button type="submit" class="btn signup__btn">Sign up</button>
+            </form>
+        </section>
+        <section id="food-list" class="food__list">
+            <div class="lds-ring" id="loader">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </section>
         <section id="recipes-list" class="recipes__list"></section>
         <section id="recipe-detail" class="recipe__detail"></section>
     </body>

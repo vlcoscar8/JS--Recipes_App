@@ -1,0 +1,39 @@
+.user__login {
+    form {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+
+        label {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .login__btn {
+            margin-top: 2rem;
+            background-color: $primarycolor;
+            color: white;
+        }
+    }
+}
+
+.user__signup {
+    form {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+
+        label {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .signup__btn {
+            margin-top: 2rem;
+            background-color: $middleterciarycolor;
+            color: white;
+        }
+    }
+}
