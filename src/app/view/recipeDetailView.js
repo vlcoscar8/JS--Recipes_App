@@ -64,21 +64,41 @@ const printContent = (content, recipeContent$$) => {
     }
 
     if (typeof content === "object") {
-        let HTML;
+        let ingredientsHtml = `
+            <div class="recipe__ingredients">
+              <h3>Name</h3>
+              <h3>Quantity</h3>
+              <h3>Unit</h3>
+            </div>
+          `;
+
+        let stepsHtml = "";
         content.forEach((el) => {
-            HTML += `
-      <div class="recipe__content--extra">
-          <h2>Step ${content.indexOf(el) + 1}</h2>
-          <h3>${el.name}</h3>
-          <div class="content__info">
-            <h4>${el.number}</h4>
-            <h5>${el.unit}</h5>
-          </div>
-      </div>
-    `;
+            if (Object.keys(el).length > 4) {
+                ingredientsHtml += `
+            <div class="recipe__ingredients--info">
+                <h3>${el.name}</h3>
+                <h4>${el.number}</h4>
+                <h5>${el.unit}</h5>
+            </div>
+          `;
+            } else {
+                stepsHtml += `
+            <div class="recipe__step">
+                <h2>Step ${content.indexOf(el) + 1}</h2>
+                <div class="recipe__step--content">
+                  <p>${el.description}</p>
+                </div>
+            </div>
+          `;
+            }
         });
 
-        recipeContent$$.innerHTML = HTML;
+        if (stepsHtml === "") {
+            recipeContent$$.innerHTML = ingredientsHtml;
+        } else {
+            recipeContent$$.innerHTML = stepsHtml;
+        }
     }
 };
 

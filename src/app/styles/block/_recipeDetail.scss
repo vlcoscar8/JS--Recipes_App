@@ -1,6 +1,7 @@
 .recipe__detail {
     padding: 2rem 1rem;
-    height: 100vh;
+    margin-bottom: 3rem;
+    height: 100%;
     background-color: white;
 
     .recipe__title {
@@ -72,6 +73,58 @@
             border-radius: 1.5rem;
             background-color: $softterciarycolorTransparent;
             text-transform: capitalize;
+        }
+
+        .recipe__step {
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 1.5rem;
+            background-color: $softmiddleterciarycolorTransparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h2 {
+                text-transform: capitalize;
+                align-self: flex-start;
+            }
+
+            &--content {
+                p {
+                    text-transform: capitalize;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+        .recipe__ingredients {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            color: rgb(149, 149, 149);
+        }
+
+        .recipe__ingredients--info {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border-bottom: 1px solid rgb(172, 172, 172);
+            position: relative;
+
+            h3 {
+                width: 30%;
+                margin-left: -5rem;
+                text-transform: capitalize;
+            }
+
+            h4 {
+                position: absolute;
+            }
+
+            h5 {
+                margin-right: -4rem;
+            }
         }
     }
 }
