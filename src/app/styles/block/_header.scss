@@ -58,4 +58,13 @@ header {
             color: white;
         }
     }
+
+    .logout__btn {
+        background-color: rgb(255, 78, 78);
+
+        &:hover {
+            background-color: rgb(183, 12, 12);
+            color: white;
+        }
+    }
 }

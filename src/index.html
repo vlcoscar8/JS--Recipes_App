@@ -26,18 +26,29 @@
         <section class="user__nav" id="user-nav">
             <button class="login__btn btn" id="login-btn">Log in</button>
             <button class="register__btn btn" id="signup-btn">Sign up</button>
+            <button class="logout__btn btn" id="logout-btn">Log out</button>
         </section>
         <section class="user__login" id="user-login">
-            <form>
+            <form id="form-login">
                 <label for="login">Email</label>
-                <input type="text" name="email" id="user-email" />
+                <input
+                    type="text"
+                    name="email"
+                    id="user-email"
+                    placeholder="email@example.com"
+                />
                 <label for="login">Password</label>
-                <input type="text" name="email" id="user-psw" />
+                <input
+                    type="text"
+                    name="password"
+                    id="user-psw"
+                    placeholder="1234"
+                />
                 <button type="submit" class="login__btn btn">Log in</button>
             </form>
         </section>
         <section class="user__signup" id="user-signup">
-            <form>
+            <form id="form-signup">
                 <label for="login">Username</label>
                 <input type="text" name="username" id="user-username" />
                 <label for="login">Email</label>
