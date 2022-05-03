@@ -1,4 +1,9 @@
-import { registerUser, loginUser, logoutUser } from "../model/userModel.js";
+import {
+    registerUser,
+    loginUser,
+    logoutUser,
+    getUserDetail,
+} from "../model/userModel.js";
 import {
     setUserId,
     setUserToken,
@@ -6,6 +11,8 @@ import {
     storageToken,
     storageId,
 } from "../server/user.js";
+
+import { printUserPage } from "../view/userView.js";
 
 const userNav$$ = document.getElementById("user-nav");
 const navBtn$$ = document.getElementById("nav");
@@ -15,6 +22,8 @@ const downNav$$ = document.getElementById("down-nav");
 const loginBtn$$ = document.getElementById("login-btn");
 const signupBtn$$ = document.getElementById("signup-btn");
 const logoutBtn$$ = document.getElementById("logout-btn");
+const userBtn$$ = document.getElementById("user-btn");
+
 const loginContainer$$ = document.getElementById("user-login");
 const signupContainer$$ = document.getElementById("user-signup");
 
@@ -31,12 +40,14 @@ const headerController = async () => {
     loginContainer$$.classList.add("no-active");
     signupContainer$$.classList.add("no-active");
     logoutBtn$$.classList.add("no-active");
+    userBtn$$.classList.add("no-active");
 
     navBtn$$.addEventListener("click", () => {
         if (storageToken[0]) {
             logoutBtn$$.classList.remove("no-active");
             loginBtn$$.classList.add("no-active");
             signupBtn$$.classList.add("no-active");
+            userBtn$$.classList.remove("no-active");
         } else {
             logoutBtn$$.classList.add("no-active");
             loginBtn$$.classList.remove("no-active");
@@ -67,7 +78,7 @@ const headerController = async () => {
     });
 
     homeBtn$$.addEventListener("click", () => {
-        foodList$$.classList.toggle("no-active");
+        foodList$$.classList.remove("no-active");
         recipesList$$.classList.toggle("no-active");
         recipesList$$.innerHTML = "";
         recipesDetail$$.classList.toggle("no-active");
@@ -122,6 +133,21 @@ const headerController = async () => {
         logoutBtn$$.classList.add("no-active");
         upperNav$$.classList.toggle("upper_nav");
         downNav$$.classList.toggle("down_nav");
+    });
+
+    userBtn$$.addEventListener("click", async () => {
+        foodList$$.classList.add("no-active");
+        recipesList$$.classList.add("no-active");
+        recipesList$$.innerHTML = "";
+        recipesDetail$$.classList.add("no-active");
+        recipesDetail$$.innerHTML = "";
+        userNav$$.classList.add("no-active");
+        upperNav$$.classList.remove("upper_nav");
+        downNav$$.classList.remove("down_nav");
+
+        const userData = await getUserDetail(storageId);
+
+        printUserPage(userData);
     });
 };
 

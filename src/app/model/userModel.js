@@ -41,4 +41,12 @@ const logoutUser = async (userId) => {
     return data;
 };
 
-export { registerUser, loginUser, logoutUser };
+const getUserDetail = async (userId) => {
+    const response = await fetch(`${URL}/user/${userId}`);
+
+    const data = await response.json();
+
+    return data;
+};
+
+export { registerUser, loginUser, logoutUser, getUserDetail };
