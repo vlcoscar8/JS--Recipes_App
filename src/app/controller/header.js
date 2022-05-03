@@ -147,7 +147,7 @@ const headerController = async () => {
 
         const userData = await getUserDetail(storageId);
 
-        printUserPage(userData);
+        printUserPage(userData, storageToken);
     });
 };
 

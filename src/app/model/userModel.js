@@ -49,4 +49,18 @@ const getUserDetail = async (userId) => {
     return data;
 };
 
-export { registerUser, loginUser, logoutUser, getUserDetail };
+const editUserInfo = async (formData, userId) => {
+    const response = await fetch(`${URL}/user/${userId}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    return data;
+};
+
+export { registerUser, loginUser, logoutUser, getUserDetail, editUserInfo };
