@@ -3,9 +3,8 @@ import { submitForm } from "../controller/user.js";
 const userProfile$$ = document.getElementById("user-profile");
 
 const printUserPage = (user, token) => {
-    console.log(token);
     const content = `
-      <div class="profile__container">
+      <div class="profile__container" id="profile-container">
         <div>
           <img src="${user.img}"/>
         </div>
@@ -41,6 +40,7 @@ const printUserPage = (user, token) => {
         </div>
       </div>
     `;
+
     userProfile$$.innerHTML = content;
 
     const infoBtn$$ = document.getElementById("info-btn");
@@ -48,17 +48,22 @@ const printUserPage = (user, token) => {
     const editForm$$ = document.getElementById("edit-form");
     const imageInput$$ = document.getElementById("image");
 
+    const editContainer$$ = document.getElementById("user-edit");
+    const infoContainer$$ = document.getElementById("user-info");
+
     infoBtn$$.addEventListener("click", () => {
         const infoContainer$$ = document.getElementById("user-info");
         infoContainer$$.classList.toggle("no-active");
+        editContainer$$.classList.add("no-active");
     });
 
     editBtn$$.addEventListener("click", () => {
         const editContainer$$ = document.getElementById("user-edit");
         editContainer$$.classList.toggle("no-active");
+        infoContainer$$.classList.add("no-active");
     });
 
-    submitForm(editForm$$, user._id, token, imageInput$$);
+    submitForm(editForm$$, user._id, token, imageInput$$, user);
 };
 
 export { printUserPage };
