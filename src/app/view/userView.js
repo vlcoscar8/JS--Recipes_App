@@ -2,7 +2,8 @@ import { submitForm } from "../controller/user.js";
 
 const userProfile$$ = document.getElementById("user-profile");
 
-const printUserPage = (user) => {
+const printUserPage = (user, token) => {
+    console.log(token);
     const content = `
       <div class="profile__container">
         <div>
@@ -27,7 +28,7 @@ const printUserPage = (user) => {
               <label name="age">Age</label>
               <input type="text" name="age">
               <label name="image">Image</label>
-              <input type="file" name="image">
+              <input type="file" name="image" id="image">
               <button type="submit" id="edit-info-btn" class="info__btn">Submit</button>
             </form>
         </div>
@@ -45,6 +46,7 @@ const printUserPage = (user) => {
     const infoBtn$$ = document.getElementById("info-btn");
     const editBtn$$ = document.getElementById("edit-btn");
     const editForm$$ = document.getElementById("edit-form");
+    const imageInput$$ = document.getElementById("image");
 
     infoBtn$$.addEventListener("click", () => {
         const infoContainer$$ = document.getElementById("user-info");
@@ -56,7 +58,7 @@ const printUserPage = (user) => {
         editContainer$$.classList.toggle("no-active");
     });
 
-    submitForm(editForm$$, user._id);
+    submitForm(editForm$$, user._id, token, imageInput$$);
 };
 
 export { printUserPage };

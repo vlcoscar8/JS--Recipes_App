@@ -49,13 +49,13 @@ const getUserDetail = async (userId) => {
     return data;
 };
 
-const editUserInfo = async (formData, userId) => {
+const editUserInfo = async (formData, userId, token) => {
     const response = await fetch(`${URL}/user/${userId}`, {
-        method: "PATCH",
+        method: "POST",
         headers: {
-            "Content-Type": "application/json",
+            Authorization: `Bearer ${token[0]}`,
         },
-        body: JSON.stringify(formData),
+        body: formData,
     });
 
     const data = await response.json();
