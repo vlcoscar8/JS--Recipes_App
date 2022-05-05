@@ -1,0 +1,94 @@
+.user__profile {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    min-height: 100vh;
+
+    img {
+        width: 50%;
+        border-radius: 50%;
+    }
+
+    .user__btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        width: 90vw;
+
+        .info__btn {
+            border: 1px solid rgb(211, 211, 211);
+            border-radius: 0.7rem;
+            width: 40%;
+            height: 3rem;
+            background-color: rgb(252, 252, 252);
+            color: rgb(89, 89, 89);
+        }
+
+        .edit__btn {
+            border: 1px solid rgb(211, 211, 211);
+            border-radius: 0.7rem;
+            width: 40%;
+            height: 3rem;
+            background-color: rgb(252, 252, 252);
+            color: rgb(89, 89, 89);
+        }
+    }
+
+    .user__info {
+        margin: 2rem;
+        padding: 2rem;
+        width: 80vw;
+        border: 1px solid rgb(203, 203, 203);
+        border-radius: 1rem;
+        color: rgb(41, 41, 41);
+    }
+
+    .user__edit {
+        border: 1px solid rgb(203, 203, 203);
+        margin: 2rem;
+        border-radius: 1rem;
+
+        .form__user {
+            display: flex;
+            flex-direction: column;
+            padding: 1.4rem;
+
+            label {
+                margin: 0.5rem 0;
+                font-size: 1.2rem;
+            }
+
+            button {
+                width: 90%;
+                align-self: center;
+                margin-top: 2rem;
+                height: 3rem;
+                color: white;
+                background-color: $primarycolor;
+            }
+        }
+    }
+
+    .user__recipes {
+        display: flex;
+        flex-direction: column;
+        width: 80vw;
+
+        &--nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            justify-content: center;
+
+            button {
+                color: white;
+                background-color: $primarycolor;
+                right: 2rem;
+            }
+        }
+    }
+}

@@ -23,13 +23,16 @@ const submitForm = async (editForm$$, userId, token, imageInput$$, user) => {
         if (infoData.age != "") {
             formData.append("age", infoData.age);
         }
+        if (infoData.username != "") {
+            formData.append("username", infoData.username);
+        }
         if (image != "") {
             formData.append("img", image);
         }
 
-        const data = await editUserInfo(formData, userId, token);
+        const newUserData = await editUserInfo(formData, userId, token);
 
-        printUserPage(data, token);
+        printUserPage(newUserData, token);
     });
 };
 
