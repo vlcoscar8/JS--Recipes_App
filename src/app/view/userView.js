@@ -1,9 +1,9 @@
 import { submitForm } from "../controller/user.js";
-import { submitRecipe } from "../controller/createRecipe.js";
+import { submitRecipe, printOptionsFood } from "../controller/createRecipe.js";
 
 const userProfile$$ = document.getElementById("user-profile");
 
-const printUserPage = (user, token) => {
+const printUserPage = async (user, token) => {
     const content = `
         <img src="${user.img}"/>
         <h2>${user.username}</h2>
@@ -41,7 +41,9 @@ const printUserPage = (user, token) => {
               <label name="title">Recipe title</label>
               <input type="text" name="title" required>
               <label name="food">Category food</label>
-              <input type="text" name="food" placeholder="Italian, Mexican..." required>
+              <select id="food-options" name="food" required>
+                ${await printOptionsFood()}
+              </select>
               <label name="category">Category</label>
               <input type="text" name="category" placeholder="pizza, shushi, pasta, fish" required> 
               <label name="description">Description</label>
@@ -50,8 +52,8 @@ const printUserPage = (user, token) => {
               <input type="number" name="time" min="5" max="120" required>
               <label name="people">People</label>
               <input type="number" name="people" min="1" max="12" required>
-              <label for="difficulty">Difficulty</label>
-              <select id="difficulty" required>
+              <label name="difficulty">Difficulty</label>
+              <select id="difficulty" name="difficulty" required>
                 <option label="Easy">Easy</option>
                 <option label="Medium">Medium</option>
                 <option label="Hard">Hard</option>

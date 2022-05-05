@@ -86,8 +86,8 @@ const pushUserIntoRecipe = async (recipeId, userId, token) => {
 
 const pushRecipeIntoUser = async (recipeId, userId, token) => {
     const body = {
-        userId: userId.toString(),
-        recipeId: recipeId.toString(),
+        userId: userId,
+        recipeId: recipeId,
     };
 
     const response = await fetch(`${URL}/user/recipe/owner`, {

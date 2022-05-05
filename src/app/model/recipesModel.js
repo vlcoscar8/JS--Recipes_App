@@ -34,12 +34,36 @@ const recipeContent = async (recipeId, recipeOption) => {
 };
 
 const createNewRecipe = async (formData, token) => {
-    const response = await fetch(`${URL}/recipes`, {
+    try {
+        const response = await fetch(`${URL}/recipes`, {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${token[0]}`,
+            },
+            body: formData,
+        });
+
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const pushRecipeIntoFood = async (recipeId, foodId, token) => {
+    const body = {
+        recipeId: recipeId,
+        foodId: foodId,
+    };
+
+    const response = await fetch(`${URL}/recipes/food`, {
         method: "POST",
         headers: {
             Authorization: `Bearer ${token[0]}`,
+            "Content-Type": "application/json",
         },
-        body: formData,
+        body: JSON.stringify(body),
     });
 
     const data = await response.json();
@@ -47,4 +71,10 @@ const createNewRecipe = async (formData, token) => {
     return data;
 };
 
-export { recipesListByName, recipeDetail, recipeContent, createNewRecipe };
+export {
+    recipesListByName,
+    recipeDetail,
+    recipeContent,
+    createNewRecipe,
+    pushRecipeIntoFood,
+};

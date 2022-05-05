@@ -1,8 +1,8 @@
-import { createNewRecipe } from "../model/recipesModel.js";
+import { createNewRecipe, pushRecipeIntoFood } from "../model/recipesModel.js";
 import { pushUserIntoRecipe, pushRecipeIntoUser } from "../model/userModel.js";
 import { createIngredient } from "../model/ingredientModel.js";
 import { createStep } from "../model/stepModel.js";
-import { recipeDetail } from "../model/recipesModel.js";
+import { foodFamily } from "../model/homeModel.js";
 
 const submitRecipe = async (formRecipe$$, recipeImage$$, token, userId) => {
     let image = "";
@@ -48,7 +48,7 @@ const submitRecipe = async (formRecipe$$, recipeImage$$, token, userId) => {
         let formData = new FormData();
 
         formData.append("title", infoData.title);
-        formData.append("food", infoData.food);
+        formData.append("food", infoData.food.toLowerCase());
         formData.append("category", infoData.category);
         formData.append("description", infoData.description);
         formData.append("time", infoData.time);
@@ -57,7 +57,6 @@ const submitRecipe = async (formRecipe$$, recipeImage$$, token, userId) => {
         formData.append("img", image);
 
         const newRecipeData = await createNewRecipe(formData, token);
-        console.log(newRecipeData._id);
 
         await pushUserIntoRecipe(newRecipeData._id, userId, token);
         await pushRecipeIntoUser(newRecipeData._id, userId, token);
@@ -70,10 +69,36 @@ const submitRecipe = async (formRecipe$$, recipeImage$$, token, userId) => {
             async (step) => await createStep(newRecipeData._id, step, token)
         );
 
-        const recipe = await recipeDetail(newRecipeData._id);
+        let start = 0;
+        let limit = 10;
+        const foodList = await foodFamily(start, limit);
 
-        console.log(recipe);
+        const foodSelected = foodList.filter((food) => {
+            return food.name.toLowerCase().split(" ")[0] === newRecipeData.food;
+        })[0];
+
+        await pushRecipeIntoFood(newRecipeData._id, foodSelected._id, token);
+
+        console.log("done");
     });
 };
 
-export { submitRecipe };
+const printOptionsFood = async () => {
+    let start = 0;
+    let limit = 10;
+    const foodList = await foodFamily(start, limit);
+
+    let content = "";
+
+    foodList.forEach((food) => {
+        content += `
+            <option label="${food.name.split(" ")[0]}">${
+            food.name.split(" ")[0]
+        }</option>
+        `;
+    });
+
+    return content;
+};
+
+export { submitRecipe, printOptionsFood };
