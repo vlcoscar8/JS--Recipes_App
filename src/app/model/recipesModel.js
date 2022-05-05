@@ -33,4 +33,18 @@ const recipeContent = async (recipeId, recipeOption) => {
     return data;
 };
 
-export { recipesListByName, recipeDetail, recipeContent };
+const createNewRecipe = async (formData, token) => {
+    const response = await fetch(`${URL}/recipes`, {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${token[0]}`,
+        },
+        body: formData,
+    });
+
+    const data = await response.json();
+
+    return data;
+};
+
+export { recipesListByName, recipeDetail, recipeContent, createNewRecipe };

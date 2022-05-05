@@ -1,4 +1,5 @@
 import { submitForm } from "../controller/user.js";
+import { submitRecipe } from "../controller/createRecipe.js";
 
 const userProfile$$ = document.getElementById("user-profile");
 
@@ -35,7 +36,7 @@ const printUserPage = (user, token) => {
             <h2>Recipes</h2>
             <button class="recipes__btn btn" id="recipes-btn">Add recipe</button>
           </div>
-          <div class="recipe__add no-active" id="user-edit">
+          <div class="recipe__add no-active" id="recipe-add">
             <form action="action" method="POST" enctype="multipart/form-data" name="recipe" id="recipe-form" class="form__recipe">
               <label name="title">Recipe title</label>
               <input type="text" name="title" required>
@@ -55,7 +56,23 @@ const printUserPage = (user, token) => {
                 <option label="Medium">Medium</option>
                 <option label="Hard">Hard</option>
               </select>
-              <button type="submit" id="edit-info-btn" class="info__btn btn">Submit</button>
+              <label name="image">Recipe Image</label>
+              <input type="file" name="image" id="recipe-image" required>
+              <div class="recipe__maininfo" id="recipe-ing">
+                <div class="recipe__maininfo--header">
+                  <h2>Ingredients</h2>
+                  <button class="maininfo__btn" id="ing-btn">Add</button>
+                </div>
+                <h4>O ingredients added</h4>
+              </div>
+              <div class="recipe__maininfo" id="recipe-steps">
+                <div class="recipe__maininfo--header">
+                  <h2>Steps</h2>
+                  <button class="maininfo__btn" id="stp-btn">Add</button>
+                </div>
+                <h4>O steps added</h4>
+              </div>
+              <button type="submit" id="recipe-des-btn" class="recipe-description__btn btn">Submit</button>
             </form>
         </div>
           <div class="user__recipes--list" id="user-recipes-list"></div>
@@ -72,19 +89,74 @@ const printUserPage = (user, token) => {
     const editContainer$$ = document.getElementById("user-edit");
     const infoContainer$$ = document.getElementById("user-info");
 
+    const addRecipeBtn$$ = document.getElementById("recipes-btn");
+    const addRecipeCont$$ = document.getElementById("recipe-add");
+    const formRecipe$$ = document.getElementById("recipe-form");
+    const recipeImage$$ = document.getElementById("recipe-image");
+    const submitRecipesBtn$$ = document.getElementById("recipe-des-btn");
+
+    const addIngBnt$$ = document.getElementById("ing-btn");
+    const ingContainer$$ = document.getElementById("recipe-ing");
+    const addStpBtn$$ = document.getElementById("stp-btn");
+    const stepsContainer$$ = document.getElementById("recipe-steps");
+
     infoBtn$$.addEventListener("click", () => {
-        const infoContainer$$ = document.getElementById("user-info");
         infoContainer$$.classList.toggle("no-active");
         editContainer$$.classList.add("no-active");
     });
 
     editBtn$$.addEventListener("click", () => {
-        const editContainer$$ = document.getElementById("user-edit");
         editContainer$$.classList.toggle("no-active");
         infoContainer$$.classList.add("no-active");
     });
 
+    addRecipeBtn$$.addEventListener("click", () => {
+        addRecipeCont$$.classList.toggle("no-active");
+    });
+
+    addIngBnt$$.addEventListener("click", () => {
+        printIngredientForm(ingContainer$$);
+    });
+
+    addStpBtn$$.addEventListener("click", () => {
+        printStepsForm(stepsContainer$$);
+    });
+
     submitForm(editForm$$, user._id, token, imageInput$$, user);
+
+    submitRecipe(formRecipe$$, recipeImage$$, token, user._id);
+};
+
+const printIngredientForm = (ingContainer$$) => {
+    const ingContainer = document.createElement("div");
+
+    let content = `
+  <label name="ing-number">Quantity</label>
+  <input type="number" id="ing-number" min="1" max="1500" required>
+  <label name="ing-unit">Unit</label>
+  <input type="text" id="ing-unit" placeholder="grams, liters, pounds ..." required>
+  <label name="ing-name">Ingredient's name</label>
+  <input type="text" id="ing-name" placeholder="rice, water, onion ..." required>
+  `;
+
+    ingContainer.innerHTML = content;
+
+    ingContainer$$.appendChild(ingContainer);
+};
+
+const printStepsForm = (stepsContainer$$) => {
+    const stpContainer = document.createElement("div");
+
+    let content = `
+    <label name="stp-order">Order step</label>
+    <input type="number" id="stp-order" min="1" max="20" required>
+    <label name="stp-description">Step description</label>
+    <textarea id="stp-description" placeholder="Description step" required></textarea>
+    `;
+
+    stpContainer.innerHTML = content;
+
+    stepsContainer$$.appendChild(stpContainer);
 };
 
 export { printUserPage };
