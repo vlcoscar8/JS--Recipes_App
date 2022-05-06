@@ -35,6 +35,8 @@ const foodList$$ = document.getElementById("food-list");
 const recipesList$$ = document.getElementById("recipes-list");
 const recipesDetail$$ = document.getElementById("recipe-detail");
 
+const userContainer$$ = document.getElementById("user-profile");
+
 const headerController = async () => {
     userNav$$.classList.add("no-active");
     loginContainer$$.classList.add("no-active");
@@ -83,6 +85,7 @@ const headerController = async () => {
         recipesList$$.innerHTML = "";
         recipesDetail$$.classList.toggle("no-active");
         recipesDetail$$.innerHTML = "";
+        userContainer$$.classList.add("no-active");
     });
 
     formSignup$$.addEventListener("submit", async (e) => {
@@ -144,6 +147,7 @@ const headerController = async () => {
         userNav$$.classList.add("no-active");
         upperNav$$.classList.remove("upper_nav");
         downNav$$.classList.remove("down_nav");
+        userContainer$$.classList.remove("no-active");
 
         const userData = await getUserDetail(storageId);
 

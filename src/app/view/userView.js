@@ -65,14 +65,14 @@ const printUserPage = async (user, token) => {
                   <h2>Ingredients</h2>
                   <button class="maininfo__btn" id="ing-btn">Add</button>
                 </div>
-                <h4>O ingredients added</h4>
+                <h4 id="ing-comentary">O ingredients added</h4>
               </div>
               <div class="recipe__maininfo" id="recipe-steps">
                 <div class="recipe__maininfo--header">
                   <h2>Steps</h2>
                   <button class="maininfo__btn" id="stp-btn">Add</button>
                 </div>
-                <h4>O steps added</h4>
+                <h4 id="stp-comentary">O steps added</h4>
               </div>
               <button type="submit" id="recipe-des-btn" class="recipe-description__btn btn">Submit</button>
             </form>
@@ -95,12 +95,14 @@ const printUserPage = async (user, token) => {
     const addRecipeCont$$ = document.getElementById("recipe-add");
     const formRecipe$$ = document.getElementById("recipe-form");
     const recipeImage$$ = document.getElementById("recipe-image");
-    const submitRecipesBtn$$ = document.getElementById("recipe-des-btn");
 
     const addIngBnt$$ = document.getElementById("ing-btn");
     const ingContainer$$ = document.getElementById("recipe-ing");
     const addStpBtn$$ = document.getElementById("stp-btn");
     const stepsContainer$$ = document.getElementById("recipe-steps");
+
+    const comentaryIng$$ = document.getElementById("ing-comentary");
+    const comentaryStp$$ = document.getElementById("stp-comentary");
 
     infoBtn$$.addEventListener("click", () => {
         infoContainer$$.classList.toggle("no-active");
@@ -117,10 +119,12 @@ const printUserPage = async (user, token) => {
     });
 
     addIngBnt$$.addEventListener("click", () => {
+        comentaryIng$$.classList.add("no-active");
         printIngredientForm(ingContainer$$);
     });
 
     addStpBtn$$.addEventListener("click", () => {
+        comentaryStp$$.classList.add("no-active");
         printStepsForm(stepsContainer$$);
     });
 
@@ -133,13 +137,13 @@ const printIngredientForm = (ingContainer$$) => {
     const ingContainer = document.createElement("div");
 
     let content = `
-  <label name="ing-number">Quantity</label>
-  <input type="number" id="ing-number" min="1" max="1500" required>
-  <label name="ing-unit">Unit</label>
-  <input type="text" id="ing-unit" placeholder="grams, liters, pounds ..." required>
-  <label name="ing-name">Ingredient's name</label>
-  <input type="text" id="ing-name" placeholder="rice, water, onion ..." required>
-  `;
+    <label name="ing-number">Quantity</label>
+    <input type="number" id="ing-number" min="1" max="1500" required>
+    <label name="ing-unit">Unit</label>
+    <input type="text" id="ing-unit" placeholder="grams, liters, pounds ..." required>
+    <label name="ing-name">Ingredient's name</label>
+    <input type="text" id="ing-name" placeholder="rice, water, onion ..." required>
+    `;
 
     ingContainer.innerHTML = content;
 
