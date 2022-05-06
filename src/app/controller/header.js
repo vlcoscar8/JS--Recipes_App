@@ -36,6 +36,7 @@ const recipesList$$ = document.getElementById("recipes-list");
 const recipesDetail$$ = document.getElementById("recipe-detail");
 
 const userContainer$$ = document.getElementById("user-profile");
+const userRecipes$$ = document.getElementById("user-profile__recipes");
 
 const headerController = async () => {
     userNav$$.classList.add("no-active");
@@ -86,6 +87,7 @@ const headerController = async () => {
         recipesDetail$$.classList.toggle("no-active");
         recipesDetail$$.innerHTML = "";
         userContainer$$.classList.add("no-active");
+        userRecipes$$.classList.add("no-active");
     });
 
     formSignup$$.addEventListener("submit", async (e) => {

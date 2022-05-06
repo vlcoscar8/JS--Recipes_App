@@ -1,4 +1,6 @@
 import { getRecipeContent } from "../controller/recipeDetail.js";
+import { getUserDetail } from "../model/userModel.js";
+import { recipeDetail } from "../model/recipesModel.js";
 
 const printRecipeDetail = async (recipe, owner) => {
     const recipeDetail$$ = document.getElementById("recipe-detail");
@@ -8,11 +10,10 @@ const printRecipeDetail = async (recipe, owner) => {
           <div class="recipe__title">
             <img src="${recipe.img}" alt="${recipe.title}"/>
             <div class="recipe__info">
-                <h2>${recipe.title}</h2>
-                <h3>${owner.username}</h3>
-              </div>
-              </div>
+              <h2>${recipe.title}</h2>
+              <h3 id="user__profile">${owner.username}</h3>
             </div>
+          </div>
           </div>
           <article class="recipe__options">
             <div class="recipe__option choosen">
@@ -50,6 +51,15 @@ const printRecipeDetail = async (recipe, owner) => {
 
     const recipeOptions$$ = document.querySelectorAll(".recipe__option");
     const recipeContent$$ = document.getElementById("recipe-content");
+
+    const userSurname$$ = document.getElementById("user__profile");
+    const userProfile$$ = document.getElementById("user-profile");
+
+    userSurname$$.addEventListener("click", () => {
+        printUserRecipes(owner._id);
+        recipeDetail$$.classList.add("no-active");
+        userProfile$$.classList.add("no-active");
+    });
 
     await getRecipeContent(recipe._id, recipeOptions$$, recipeContent$$);
 };
@@ -101,6 +111,35 @@ const printContent = (content, recipeContent$$) => {
             recipeContent$$.innerHTML = stepsHtml;
         }
     }
+};
+
+const printUserRecipes = async (userId) => {
+    const userData = await getUserDetail(userId);
+    const recipes = userData.recipes;
+    const userRecipes$$ = document.getElementById("user-profile__recipes");
+    userRecipes$$.classList.remove("no-active");
+
+    userRecipes$$.innerHTML = `
+    <div class="user__info">
+      <img src="${userData.img}"/>
+      <h2>${userData.username}</h2>
+    </div>
+    <div class="user-recipes__container" id="recipes-container">
+    </div>
+  `;
+
+    const recipesContainer = document.getElementById("recipes-container");
+
+    recipes.forEach(async (recipe) => {
+        const recipeDetails = await recipeDetail(recipe);
+        let content = `
+        <div class="recipe__container">
+          <img src="${recipeDetails.img}"/>
+          <h2>${recipeDetails.title}</h2>
+        </div>
+      `;
+        recipesContainer.insertAdjacentHTML("beforeend", content);
+    });
 };
 
 export { printRecipeDetail, printContent };

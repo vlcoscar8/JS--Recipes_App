@@ -34,8 +34,6 @@ const submitRecipe = async (formRecipe$$, recipeImage$$, token, userId) => {
         const orderStp = document.querySelectorAll("#stp-order");
         const descriptionStp = document.querySelectorAll("#stp-description");
 
-        console.log(orderStp);
-
         for (let i = 0; i < numberIng.length; i++) {
             let obj = {
                 order: parseInt(orderStp[i].value),

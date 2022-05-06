@@ -7,6 +7,8 @@ import { printRecipeDetail } from "../view/recipeDetailView.js";
 const getRecipesList = async (e) => {
     const parentNode = e.target.parentNode;
 
+    window.scrollTo(0, 0);
+
     if (parentNode.getAttribute("class") === "food__container") {
         parentNode.parentNode.classList.toggle("no-active");
 
