@@ -11,10 +11,15 @@ const getRecipesList = async (e) => {
         parentNode.parentNode.classList.toggle("no-active");
 
         const foodName = parentNode.getAttribute("id").split("-")[0];
-        console.log(foodName);
 
         const recipesList = await recipesListByName(foodName);
         console.log(recipesList);
+
+        if (recipesList === "The recipe doesn't exist") {
+            let recipe = "";
+            printRecipe(recipe);
+            return;
+        }
 
         recipesList.forEach(async (recipe) => {
             const owner = await ownerDetail(recipe.owner[0]);

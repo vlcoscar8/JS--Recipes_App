@@ -6,7 +6,7 @@ const printRecipe = async (recipe, owner) => {
     let content;
 
     if (recipe === "") {
-        content = "There is not any recipe yet";
+        content = `<h2 class="no-recipe">There is not any recipe yet</h2>`;
     } else {
         content = `
       <div class="recipe__container" id="recipe-container">
