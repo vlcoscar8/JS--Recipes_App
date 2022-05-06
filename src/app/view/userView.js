@@ -76,9 +76,6 @@ const printUserPage = async (user, token) => {
               </div>
               <button type="submit" id="recipe-des-btn" class="recipe-description__btn btn">Submit</button>
             </form>
-        </div>
-          <div class="user__recipes--list" id="user-recipes-list"></div>
-        </div>
     `;
 
     userProfile$$.innerHTML = content;
@@ -135,6 +132,7 @@ const printUserPage = async (user, token) => {
 
 const printIngredientForm = (ingContainer$$) => {
     const ingContainer = document.createElement("div");
+    ingContainer.classList.add("add__contents");
 
     let content = `
     <label name="ing-number">Quantity</label>
@@ -152,7 +150,7 @@ const printIngredientForm = (ingContainer$$) => {
 
 const printStepsForm = (stepsContainer$$) => {
     const stpContainer = document.createElement("div");
-
+    stpContainer.classList.add("add__contents");
     let content = `
     <label name="stp-order">Order step</label>
     <input type="number" id="stp-order" min="1" max="20" required>

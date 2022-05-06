@@ -1,5 +1,5 @@
 .user__profile {
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,6 +88,70 @@
                 color: white;
                 background-color: $primarycolor;
                 right: 2rem;
+            }
+        }
+
+        .recipe__add {
+            margin-top: 3rem;
+            border: 1px solid rgb(187, 187, 187);
+
+            .form__recipe {
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+
+                label {
+                    margin: 0.5rem 0 0 0;
+                    font-size: 1.3rem;
+                }
+
+                input {
+                    margin: 0.5rem 0;
+                }
+
+                select {
+                    margin: 1rem 0;
+                }
+
+                textarea {
+                    height: 15rem;
+                    resize: none;
+                }
+
+                .recipe__maininfo {
+                    display: flex;
+                    flex-direction: column;
+
+                    &--header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        border-bottom: 1px solid rgb(157, 157, 157);
+
+                        button {
+                            height: 2rem;
+                            background-color: $primarycolor;
+                            border: 1px solid rgb(167, 167, 167);
+                            width: 4rem;
+                            border-radius: 0.5rem;
+                            color: white;
+                        }
+                    }
+                    .add__contents {
+                        display: flex;
+                        flex-direction: column;
+                        padding: 1rem;
+                        border: 1px solid rgb(182, 182, 182);
+                        margin: 1rem 0;
+                    }
+                }
+
+                .recipe-description__btn {
+                    background-color: $primarycolor;
+                    width: 70vw;
+                    align-self: center;
+                    color: white;
+                }
             }
         }
     }
