@@ -271,12 +271,21 @@
                 width: 60%;
                 height: 60%;
                 border-radius: 50%;
+
+                @include desktop {
+                    width: 30%;
+                }
             }
         }
 
         .user-recipes__container {
             display: flex;
             flex-wrap: wrap;
+            gap: 2rem;
+
+            @include desktop {
+                gap: 2rem;
+            }
 
             .recipe__container {
                 display: flex;
@@ -286,10 +295,18 @@
                 border: 1px solid rgb(170, 170, 170);
                 border-radius: 1rem;
                 background-color: white;
+                height: 25rem;
+                width: 30rem;
+
+                @include desktop {
+                    height: 40rem;
+                    width: 40rem;
+                }
 
                 img {
                     width: 100%;
                     border: 1px solid rgb(138, 138, 138);
+                    max-height: 80%;
                 }
             }
         }

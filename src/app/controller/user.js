@@ -32,6 +32,7 @@ const submitForm = async (editForm$$, userId, token, imageInput$$, user) => {
 
         const newUserData = await editUserInfo(formData, userId, token);
 
+        editForm$$.classList.toggle("no-active");
         printUserPage(newUserData, token);
     });
 };

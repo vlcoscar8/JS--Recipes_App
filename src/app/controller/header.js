@@ -100,6 +100,9 @@ const headerController = async () => {
 
         if (regex.test(formData.email)) {
             await registerUser(formData);
+
+            alert("User registered");
+            signupContainer$$.classList.add("no-active");
         } else {
             alert("The email or the password are not correct");
         }
@@ -119,6 +122,7 @@ const headerController = async () => {
             setUserToken(data.data.token);
             setUserId(data.data.userId);
 
+            alert("User logged correctly");
             loginContainer$$.classList.add("no-active");
         } else {
             alert("The email or the password are not correct");
@@ -131,13 +135,14 @@ const headerController = async () => {
         await logoutUser(storageId);
 
         removeUser();
-
+        alert("User logged out correctly");
         userNav$$.classList.add("no-active");
         loginContainer$$.classList.add("no-active");
         signupContainer$$.classList.add("no-active");
         logoutBtn$$.classList.add("no-active");
         upperNav$$.classList.toggle("upper_nav");
         downNav$$.classList.toggle("down_nav");
+        userBtn$$.classList.add("no-active");
     });
 
     userBtn$$.addEventListener("click", async () => {

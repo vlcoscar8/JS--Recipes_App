@@ -78,6 +78,13 @@ const submitRecipe = async (formRecipe$$, recipeImage$$, token, userId) => {
         })[0];
 
         await pushRecipeIntoFood(newRecipeData._id, foodSelected._id, token);
+
+        alert("Recipe create");
+
+        const foodList$$ = document.getElementById("food-list");
+        const userContainer$$ = document.getElementById("user-profile");
+        foodList$$.classList.remove("no-active");
+        userContainer$$.classList.add("no-active");
     });
 };
 
