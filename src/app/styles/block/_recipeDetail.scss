@@ -8,6 +8,7 @@
         display: flex;
         justify-content: space-between;
         gap: 2rem;
+        position: relative;
 
         img {
             width: 50%;
@@ -15,8 +16,15 @@
             border-radius: 1rem;
         }
 
-        h3 {
-            color: rgb(113, 113, 113);
+        .recipe__info {
+            position: absolute;
+            right: 1rem;
+            width: 44%;
+            text-align: center;
+
+            h3 {
+                color: rgb(113, 113, 113);
+            }
         }
     }
 

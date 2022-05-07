@@ -56,9 +56,9 @@ const printRecipeDetail = async (recipe, owner) => {
     const userProfile$$ = document.getElementById("user-profile");
 
     userSurname$$.addEventListener("click", () => {
-        printUserRecipes(owner._id);
         recipeDetail$$.classList.add("no-active");
         userProfile$$.classList.add("no-active");
+        printUserRecipes(owner._id);
     });
 
     await getRecipeContent(recipe._id, recipeOptions$$, recipeContent$$);
@@ -142,4 +142,4 @@ const printUserRecipes = async (userId) => {
     });
 };
 
-export { printRecipeDetail, printContent };
+export { printRecipeDetail, printContent, printUserRecipes };

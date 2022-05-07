@@ -1,4 +1,5 @@
 import { getDetailRecipe } from "../controller/recipesList.js";
+import { printUserRecipes } from "./recipeDetailView.js";
 
 const printRecipe = async (recipe, owner) => {
     const recipesSection$$ = document.getElementById("recipes-list");
@@ -14,7 +15,7 @@ const printRecipe = async (recipe, owner) => {
           <img src="${owner.img}"alt="${owner.username}" class="user__image"/>
           <div class="recipe__title">
             <h2>${recipe.title}</h2>
-            <h3>${owner.username}</h3>
+            <h3 id="user-usernamea">${owner.username}</h3>
           </div>
         </div>
         <img src="${recipe.img}" alt="${recipe.title}" class="recipe__image"/>
@@ -40,6 +41,20 @@ const printRecipe = async (recipe, owner) => {
     }
 
     recipesSection$$.insertAdjacentHTML("beforeend", content);
+
+    if (recipe !== "") {
+        const userUsername = document.getElementById("user-usernamea");
+        const recipesList$$ = document.getElementById("recipes-list");
+        const userProfile$$ = document.getElementById("user-profile");
+        const recipeDetail$$ = document.getElementById("recipe-detail");
+
+        userUsername.addEventListener("click", () => {
+            printUserRecipes(owner._id);
+            recipesList$$.classList.add("no-active");
+            userProfile$$.classList.add("no-active");
+            recipeDetail$$.classList.add("no-active");
+        });
+    }
 
     const recipeBtns$$ = document.querySelectorAll("#recipe-detail-btn");
     getDetailRecipe(recipeBtns$$);
