@@ -5,4 +5,4 @@ The project is based on practicing the login, logout flow connecting to a deploy
 
 So the project is based on using a lot of fetch functions with get and post methods to create the flow explained previosly.
 
-Stack used: Javascript vanilla & SCSS with the support of a personal api deployed on heroku. You can find the documentation of the api here: 
+Stack used: Javascript vanilla & SCSS with the support of a personal api deployed on heroku. You can find the documentation of the api here: https://apirecetasoscar.herokuapp.com/api-doc/ and the code of the api here:  
