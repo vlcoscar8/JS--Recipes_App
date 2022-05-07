@@ -3,16 +3,23 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-
+    width: 100%;
     background-color: $primarycolor;
+
+    @include desktop {
+        padding: 0 5rem;
+        box-sizing: border-box;
+    }
 
     .title {
         color: white;
         margin: 2rem 0;
+
+        cursor: pointer;
     }
 
     .nav__btn {
-        margin-right: 1rem;
+        margin-right: 3rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -44,6 +51,12 @@ header {
     .login__btn {
         background-color: transparent;
 
+        @include desktop {
+            width: 50%;
+            height: 4rem;
+            font-size: 2rem;
+        }
+
         &:hover {
             color: white;
             background-color: $primarycolor;
@@ -52,6 +65,12 @@ header {
 
     .register__btn {
         background-color: $softmiddlesecondarycolor;
+
+        @include desktop {
+            width: 50%;
+            height: 4rem;
+            font-size: 2rem;
+        }
 
         &:hover {
             background-color: $middlesecondarycolor;
@@ -62,6 +81,12 @@ header {
     .logout__btn {
         background-color: rgb(255, 78, 78);
 
+        @include desktop {
+            width: 50%;
+            height: 4rem;
+            font-size: 2rem;
+        }
+
         &:hover {
             background-color: rgb(183, 12, 12);
             color: white;
@@ -70,6 +95,12 @@ header {
 
     .user__btn {
         background-color: $softmiddleterciarycolor;
+
+        @include desktop {
+            width: 50%;
+            height: 4rem;
+            font-size: 2rem;
+        }
 
         &:hover {
             background-color: $middleterciarycolor;

@@ -5,15 +5,39 @@
         text-align: center;
         padding: 2rem;
 
+        @include desktop {
+            align-items: center;
+        }
+
         label {
             margin: 1rem 0;
             font-size: 1.2rem;
+
+            @include desktop {
+                width: 50%;
+                height: 2rem;
+                font-size: 2rem;
+            }
+        }
+
+        input {
+            @include desktop {
+                width: 50%;
+                height: 3rem;
+            }
         }
 
         .login__btn {
             margin-top: 2rem;
             background-color: $primarycolor;
             color: white;
+            align-self: center;
+
+            @include desktop {
+                width: 50%;
+                height: 3rem;
+                margin-top: 5rem;
+            }
         }
     }
 }
@@ -22,18 +46,37 @@
     form {
         display: flex;
         flex-direction: column;
+        align-items: center;
         text-align: center;
         padding: 2rem;
+
+        @include desktop {
+            width: 50%;
+            height: 2rem;
+            font-size: 2rem;
+        }
 
         label {
             margin: 1rem 0;
             font-size: 1.2rem;
+
+            @include desktop {
+                width: 50%;
+                height: 2rem;
+                font-size: 2rem;
+            }
         }
 
         .signup__btn {
             margin-top: 2rem;
             background-color: $middleterciarycolor;
             color: white;
+
+            @include desktop {
+                width: 50%;
+                height: 2rem;
+                font-size: 2rem;
+            }
         }
     }
 }

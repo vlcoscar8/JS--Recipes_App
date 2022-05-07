@@ -7,25 +7,13 @@ const getList = async () => {
     printHome(listFood);
 };
 
-let start = 0;
-let limit = 0;
-let oldValue = 0;
-
 const getListOnScroll = async () => {
     const foodList$$ = document.getElementById("food-list");
 
     if (foodList$$.className === "food__list") {
-        let newValue = window.pageYOffset;
+        const listFood = await foodFamily();
 
-        if (newValue - oldValue >= 480) {
-            oldValue = newValue;
-            start = start + 4;
-            limit = limit + 8;
-
-            const listFood = await foodFamily(start, limit);
-
-            printHome(listFood);
-        }
+        printHome(listFood);
     }
 };
 

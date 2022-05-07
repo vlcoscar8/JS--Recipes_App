@@ -2,7 +2,7 @@ import { URL } from "../utils/variables.JS";
 
 const loader = document.getElementById("loader");
 
-const foodFamily = async (start = 0, limit = 4) => {
+const foodFamily = async (start = 0, limit = 10) => {
     try {
         loader.classList.remove("no-active");
 

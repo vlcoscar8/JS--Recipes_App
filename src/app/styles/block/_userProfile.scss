@@ -9,6 +9,21 @@
     img {
         width: 50%;
         border-radius: 50%;
+        margin-top: 2rem;
+
+        @include desktop {
+            width: 14%;
+            margin-top: 4rem;
+        }
+    }
+
+    h2 {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 4rem;
+        border: 1px solid rgb(215, 215, 215);
     }
 
     .user__btn {
@@ -25,6 +40,17 @@
             height: 3rem;
             background-color: rgb(252, 252, 252);
             color: rgb(89, 89, 89);
+            cursor: pointer;
+
+            @include desktop {
+                width: 20%;
+                height: 5rem;
+            }
+
+            &:hover {
+                background-color: $primarycolor;
+                color: black;
+            }
         }
 
         .edit__btn {
@@ -34,6 +60,17 @@
             height: 3rem;
             background-color: rgb(252, 252, 252);
             color: rgb(89, 89, 89);
+            cursor: pointer;
+
+            @include desktop {
+                width: 20%;
+                height: 5rem;
+            }
+
+            &:hover {
+                background-color: $primarycolor;
+                color: black;
+            }
         }
     }
 
@@ -51,6 +88,12 @@
         margin: 2rem;
         border-radius: 1rem;
 
+        @include desktop {
+            width: 45%;
+            align-self: center;
+            padding: 3rem;
+        }
+
         .form__user {
             display: flex;
             flex-direction: column;
@@ -59,6 +102,23 @@
             label {
                 margin: 0.5rem 0;
                 font-size: 1.2rem;
+
+                @include desktop {
+                    font-size: 1.5rem;
+                    margin: 1rem 0;
+                }
+            }
+
+            input {
+                @include desktop {
+                    height: 3rem;
+                }
+            }
+
+            select {
+                @include desktop {
+                    height: 3rem;
+                }
             }
 
             button {
@@ -68,6 +128,11 @@
                 height: 3rem;
                 color: white;
                 background-color: $primarycolor;
+
+                @include desktop {
+                    height: 4rem;
+                    width: 50%;
+                }
             }
         }
     }
@@ -88,6 +153,15 @@
                 color: white;
                 background-color: $primarycolor;
                 right: 2rem;
+
+                @include desktop {
+                    width: 30%;
+                    height: 4rem;
+                }
+
+                &:hover {
+                    background-color: $primarycolorTransparent;
+                }
             }
         }
 
@@ -95,22 +169,43 @@
             margin-top: 3rem;
             border: 1px solid rgb(187, 187, 187);
 
+            @include desktop {
+                width: 60%;
+                align-self: center;
+            }
+
             .form__recipe {
                 padding: 1rem;
                 display: flex;
                 flex-direction: column;
 
+                @include desktop {
+                    margin: 2rem 5rem;
+                }
+
                 label {
                     margin: 0.5rem 0 0 0;
                     font-size: 1.3rem;
+
+                    @include desktop {
+                        font-size: 1.8rem;
+                    }
                 }
 
                 input {
                     margin: 0.5rem 0;
+
+                    @include desktop {
+                        height: 2.4rem;
+                    }
                 }
 
                 select {
                     margin: 1rem 0;
+
+                    @include desktop {
+                        height: 2.8rem;
+                    }
                 }
 
                 textarea {
@@ -151,6 +246,12 @@
                     width: 70vw;
                     align-self: center;
                     color: white;
+
+                    @include desktop {
+                        margin-top: 3rem;
+                        width: 40%;
+                        height: 5rem;
+                    }
                 }
             }
         }

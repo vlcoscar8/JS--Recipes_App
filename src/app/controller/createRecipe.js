@@ -78,8 +78,6 @@ const submitRecipe = async (formRecipe$$, recipeImage$$, token, userId) => {
         })[0];
 
         await pushRecipeIntoFood(newRecipeData._id, foodSelected._id, token);
-
-        console.log("done");
     });
 };
 
