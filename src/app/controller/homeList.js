@@ -7,14 +7,4 @@ const getList = async () => {
     printHome(listFood);
 };
 
-const getListOnScroll = async () => {
-    const foodList$$ = document.getElementById("food-list");
-
-    if (foodList$$.className === "food__list") {
-        const listFood = await foodFamily();
-
-        printHome(listFood);
-    }
-};
-
-export { getList, getListOnScroll };
+export { getList };

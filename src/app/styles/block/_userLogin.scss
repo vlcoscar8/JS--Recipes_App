@@ -35,7 +35,7 @@
 
             @include desktop {
                 width: 50%;
-                height: 3rem;
+                height: 5rem;
                 margin-top: 5rem;
             }
         }
@@ -46,14 +46,11 @@
     form {
         display: flex;
         flex-direction: column;
-        align-items: center;
         text-align: center;
         padding: 2rem;
 
         @include desktop {
-            width: 50%;
-            height: 2rem;
-            font-size: 2rem;
+            align-items: center;
         }
 
         label {
@@ -67,6 +64,13 @@
             }
         }
 
+        input {
+            @include desktop {
+                width: 50%;
+                height: 3rem;
+            }
+        }
+
         .signup__btn {
             margin-top: 2rem;
             background-color: $middleterciarycolor;
@@ -74,8 +78,8 @@
 
             @include desktop {
                 width: 50%;
-                height: 2rem;
-                font-size: 2rem;
+                height: 5rem;
+                margin-top: 5rem;
             }
         }
     }
